@@ -14,7 +14,6 @@ int num_inversions_brute_force(int arr[], int length){
 	int counter = 0;
 	for(int i = 0; i < length - 1; i++){//no need to assign i to the last element of the array
 		for(int j = i; j < length; j++){
-
 			if (arr[i] > arr[j]){ counter++; } 
 		}
 	}
@@ -49,6 +48,10 @@ int num_split_inv_merge_and_count(int arr[], int low, int high){
 	while(i <= mid){ temp[k++] = arr[i++]; }
 	while(j <= high){temp[k++] = arr[j++]; }
 
+	for(int l=low; l<=high; l++){
+		arr[l] = temp[l-low];
+	}
+
 	return num_split_inv;
 
 }
@@ -66,13 +69,19 @@ int num_inversions_sort_and_count(int arr[], int low, int high){
 }
 
 int main(){
-	const int length = 6;
-	int arr[length] = {1,3,5,2,4,6};
+	const int length = 7;
+	// int arr[length] = {1,3,5,2,4,6};
+	// int arr[length] = {6,2,5,1,4,3};
+	int arr[length] = {3,4,7,1,2,6,5};
+
 	// int arr[length] = {6,5,4,3,2,1};
 
 
-	// int result = num_inversions_brute_force(arr, length);
-	int result = num_inversions_sort_and_count(arr, 0, length-1);
-	cout<<"Number of inversions is: "<<result<<endl;
+	int result_brut = num_inversions_brute_force(arr, length);
+	int result_rec = num_inversions_sort_and_count(arr, 0, length-1);
+	cout<<"(Brute-force) Number of inversions is: "<<result_brut<<endl;
+	cout<<"(Recursive) Number of inversions is: "<<result_rec<<endl;
+
+
  	return 0;
 }
