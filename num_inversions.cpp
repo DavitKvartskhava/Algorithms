@@ -30,7 +30,6 @@ int num_split_inv_merge_and_count(int arr[], int low, int high){
 	int i = low, j = mid+1; //i pointer for left half, j pointer for right half. For all i, j -> i < j
 	int k = 0; //index for temp arr
 	int temp[high-low+1];
-
 	int num_split_inv = 0;
 
 	while(i <= mid && j <= high){

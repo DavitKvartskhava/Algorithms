@@ -6,7 +6,6 @@
 	Maybe use a list of integers instead of a string. 
 	This only works for multiplying two integers with same length + len = 2^k.
 */
-
 using namespace std; 
 
 //Given a, b --> str versions for integers, pads enough 0s to the 
